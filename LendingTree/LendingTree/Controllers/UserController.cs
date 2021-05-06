@@ -31,33 +31,49 @@ namespace LendingTree.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FirstName,LastName,DoB,Gender,ContactNumber,Email,UserId,Password,ConfirmPassword,Answer1,Answer2,Answer3")] User user)
+        public ActionResult Create([Bind(Include = "FirstName, LastName, DoB, Gender, ContactNumber, Email, UserId, Password, ConfirmPassword, Answer1, Answer2, Answer3")] User user)
         {
             if (ModelState.IsValid)          
             {
-                var confrmpasskey = encryptPassword.Encode(user.ConfirmPassword);
-                user.ConfirmPassword = confrmpasskey;
-                var passkey = encryptPassword.Encode(user.Password);
-                user.Password = passkey;
-                db.Users.Add(user);
-                try
+                if (!db.Users.Any(x => x.UserId == user.UserId))
                 {
-                    db.SaveChanges();
-                    MessageBox.Show("New User Created Successfully");
+                    var confrmpasskey = encryptPassword.Encode(user.ConfirmPassword);
+                    user.ConfirmPassword = confrmpasskey;
+
+                    var passkey = encryptPassword.Encode(user.Password);
+                    user.Password = passkey;
+
+                    db.Users.Add(user);
+
+                    try
+                    {
+                        db.SaveChanges();
+
+                        MessageBox.Show("New User Created Successfully");
+
+                        return View(user);
+                        //return RedirectToAction("UserHome", "Home");
+                    }
+                    catch (Exception e)
+                    {
+                        ViewBag.Message = e.Message;
+
+                        return View();
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "User ID already exists");
+
                     return View(user);
-                    //return RedirectToAction("UserHome", "Home");
-                }
-                catch (Exception e)
-                {
-                    ViewBag.Message = e.Message;
-                    return View("Error");
-                }
+                }     
             }
+
             return View(user);
         }
 
         [HttpGet]
-        public ActionResult UserLogin()
+        public ActionResult Login()
         {
 
             return View();
@@ -66,7 +82,7 @@ namespace LendingTree.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UserLogin([Bind(Include = "UserId,Password")] User user)
+        public ActionResult Login([Bind(Include = "UserId, Password")] User user)
         {
             //if (ModelState.IsValid)
             //{
@@ -107,7 +123,7 @@ namespace LendingTree.Controllers
         }
 
 
-        public ActionResult UserAccount(string UserId)
+        public ActionResult Account(string UserId)
         {
             var entity = db.Users.Find(UserId);
             ViewBag.Gender = entity.Gender;
@@ -115,7 +131,7 @@ namespace LendingTree.Controllers
             return View();
         }
 
-        public ActionResult UserLogOut()
+        public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("UserLogin");
