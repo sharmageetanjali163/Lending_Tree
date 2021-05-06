@@ -48,7 +48,7 @@ namespace LendingTree.Models
 
         [Required]
         [Display(Name = "Department")]
-        [Range(1, 5)]
+       // [Range(1, 5)]
         public int DepartmentId { get; set; }
 
         [ForeignKey("DepartmentId")]
