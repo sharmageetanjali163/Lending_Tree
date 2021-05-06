@@ -35,7 +35,8 @@ namespace LendingTree.Controllers
         public ActionResult AgentCreate()
         {
 
-            ViewBag.DepartmentId = new SelectList(db.Departments, "DepartmentId", "DepartmentName");
+            IEnumerable<SelectListItem> list = new SelectList(db.Departments, "DepartmentId");
+            ViewBag.DepartmentId = list ;
 
             return View();
         }

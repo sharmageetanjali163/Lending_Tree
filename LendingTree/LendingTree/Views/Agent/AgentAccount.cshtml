@@ -1,0 +1,53 @@
+﻿<html>
+<head>
+    <style>
+        body {
+            background: url('/Images/q8.jpg');
+            background-repeat: no-repeat;
+            background-size: 1920px 1080px;
+            color: ghostwhite;
+        }
+
+        div {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+
+    @{
+        ViewBag.Title = "AgentAccount";
+    }
+
+    <h2>Agent Account</h2>
+
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            @if (User.IsInRole("Loan Agency"))
+            {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("New Loans", "LoanIndex", "Loans")</li>
+                    <li>@Html.ActionLink("Physically Verified Loans", "LoanApproved", "Loans")</li>
+                    <li>@Html.ActionLink("Verified Loans", "LoanVerified", "Loans")</li>
+                    <li>@Html.ActionLink("Legally Verified Loans", "ApprovedLoan", "Loans")</li>
+                </ul>
+            }
+            else
+            {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("View Loans", "Index", "Loans")</li>
+                </ul>
+            }
+        </div>
+    </div>
+</body>
+</html>

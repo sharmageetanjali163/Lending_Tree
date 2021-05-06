@@ -134,6 +134,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105061517569_abc.cs" />
+    <Compile Include="Migrations\202105061517569_abc.Designer.cs">
+      <DependentUpon>202105061517569_abc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\Department.cs" />
@@ -197,6 +202,8 @@
     <Content Include="Views\User\UserAccount.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\UserLogin.cshtml" />
+    <Content Include="Views\Agent\AgentLogin.cshtml" />
+    <Content Include="Views\Agent\AgentAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -213,6 +220,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105061517569_abc.resx">
+      <DependentUpon>202105061517569_abc.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
