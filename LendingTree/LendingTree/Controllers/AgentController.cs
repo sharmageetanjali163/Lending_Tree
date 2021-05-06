@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -35,8 +35,7 @@ namespace LendingTree.Controllers
         public ActionResult AgentCreate()
         {
 
-            IEnumerable<SelectListItem> list = new SelectList(db.Departments, "DepartmentId");
-            ViewBag.DepartmentId = list ;
+            //ViewBag.DepartmentId = new SelectList(db.Departments, "DepartmentId", "DepartmentName");
 
             return View();
         }
@@ -50,12 +49,14 @@ namespace LendingTree.Controllers
                 {
                     var passkey = encryptPassword.Encode(agent.Password);
                     agent.Password = passkey;
+                    var confkey = encryptPassword.Encode(agent.ConfirmPassword);
+                    agent.ConfirmPassword = confkey;
                     db.Agents.Add(agent);
                     db.SaveChanges();
 
                     System.Windows.Forms.MessageBox.Show("New Agent Created Successfully");
 
-                    return RedirectToAction("AgentHome", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
