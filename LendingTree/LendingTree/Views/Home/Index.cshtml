@@ -1,19 +1,124 @@
 ﻿@{
+    Layout = null;
     ViewBag.Title = "Home Page";
 }
 
 <hr />
 
-<div>
-    @Html.ActionLink("User Login", "UserLogin", "User")
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lending Tree</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .header{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">Lending Tree</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<hr />
-<div>
-    @Html.ActionLink("User Registration", "Create", "User")
-</div>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="@Url.Action("Index", "Home")" class="nav-item nav-link active">Home</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Register as</a>
+                        <div class="dropdown-menu">
+                            <a href="@Url.Action("Create", "User")" class="dropdown-item">New User</a>
+                            <a href="@Url.Action("AgentCreate", "Agent")" class="dropdown-item">New Agent</a>
 
-<hr />
-<div>
-    @Html.ActionLink("Agent Registration", "AgentCreate","Agent")
-</div>
+                        </div>
+                    </div>
+                </div>
+                <form class="form-inline">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="nav-item dropdown">
+                    <a href="@Url.Action("", "")" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i>Login as</a>
+                    <div class="dropdown-menu">
+                        <a href="@Url.Action("UserLogin", "User")" class="dropdown-item">User</a>
+                        <a href="@Url.Action("AgentLogin", "Agent")" class="dropdown-item">Agent</a>
+                        <a href="@Url.Action("AdminLogin", "Admin")" class="dropdown-item">Admin</a>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+
+
+        <div class="mid">
+            <video autoplay muted loop>
+                <source class="embed-responsive" src="~/video/startupvideo2.mp4" type="video/mp4">
+            </video>
+            <div class="innertext text-center">
+                <h1 class="text-light display-4 font-weight-bold">Lending Tree Application</h1>
+                <p class="text-light mx-auto">Easy Business, Vehicle and Personal loans <br>Now at Your finger tips</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="about py-5">
+        <div class=" row align-items-center container my-5 mx-auto">
+            <div class="text col-lg-6 col-md-6 col-6 w-50 pt-5 pb-5">
+                <h6>Easy Loans Available</h6>
+                <h2>Get loans with minimum Interest rate</h2>
+                <p>We provide business loan, home loan, vehicle loan etc in a minimum interest rate. askdkashdlasijdlasjdlaksndlad askdhkasdhlasdhlasdas iashdoaisdhlas</p>
+            </div>
+            <div class=" img col-lg-6 col-md-6 col-12 w-50 pt-5 pb-5">
+                <img class="image-fluid" src="
+                         ~/Images/loan.png">
+            </div>
+
+        </div>
+    </div>
+
+    <section class="">
+        <!-- Footer -->
+        <footer class="text-center text-white" style="background-color: #0a4275;">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: CTA -->
+                <section class="">
+                    <p class="d-flex justify-content-center align-items-center">
+                        <span class="me-3">Register for free</span>
+                        <button type="button" class="btn btn-outline-light btn-rounded">
+                            Sign up!
+                        </button>
+                    </p>
+                </section>
+                <!-- Section: CTA -->
+            </div>
+            <!-- Grid container -->
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2020 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/">Lending Tree Application</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </section>
+
+
+
+</body>
+</html>

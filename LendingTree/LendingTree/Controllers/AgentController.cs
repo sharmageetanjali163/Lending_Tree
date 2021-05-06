@@ -35,8 +35,8 @@ namespace LendingTree.Controllers
         public ActionResult AgentCreate()
         {
 
-            IEnumerable<SelectListItem> list = new SelectList(db.Departments, "DepartmentId");
-            ViewBag.DepartmentId = list ;
+            //IEnumerable<SelectListItem> list = new SelectList(db.Departments, "DepartmentId");
+            //ViewBag.DepartmentId = list ;
 
             return View();
         }
@@ -55,7 +55,7 @@ namespace LendingTree.Controllers
 
                     System.Windows.Forms.MessageBox.Show("New Agent Created Successfully");
 
-                    return RedirectToAction("AgentHome", "Home");
+                    return RedirectToAction("Index","Home");
                 }
                 else
                 {
@@ -83,11 +83,11 @@ namespace LendingTree.Controllers
                 {
                     string password = encryptPassword.Encode(agent.Password);
 
-                    if (db.Agents.Any(b => b.AgentId == agent.AgentId && b.Password == password))
+                    if (db.Agents.Any(b => b.AgentId == agent.AgentId && b.Password == agent.Password))
                     {
                         FormsAuthentication.SetAuthCookie(agent.AgentId.ToString(), false);
 
-                        return RedirectToAction("AgentAccount", "Agents");
+                        return RedirectToAction("AgentAccount", "Agent");
                     }
                     else
                     {

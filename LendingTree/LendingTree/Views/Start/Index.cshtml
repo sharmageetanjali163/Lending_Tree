@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<head>
+    <title>Lending Tree</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="style/style.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        background-image: url("/Images/lending2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .navbar {
+        opacity: 0.5;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        font-weight: 400;
+        color: #606060;
+        text-align: center;
+    }
+
+    .header-buttons a {
+        border: 1px solid #fff;
+        border-radius: 100px;
+        margin: 0 5px;
+        padding: 12px 35px;
+        outline: none;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.4;
+        text-align: center;
+        top: 50%;
+        left: 37%;
+        position: relative;
+    }
+
+        .header-buttons a:hover {
+            color: #50d1c0;
+            background: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+        }
+
+    .center-div p {
+        font-size: 30px;
+        padding: 10px 0 20px 0;
+        color: white;
+        text-shadow: 2px 2px 5px #000000;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: aliceblue;
+        font-size: 50px;
+        text-shadow: 2px 2px 5px #000000;
+    }
+</style>
+<body>
+    <!----
+        <div class="navbar-header">
+
+            <img class="mdl-layout-icon logo" src="/Images/truyum-logo-dark.png"></img>
+
+        </div>
+    -->
+    <div class="container-fluid">
+
+
+        <div class="center-div">
+            <h1 class="font-weight-bold"> Welcome to Lending Tree Website.</h1>
+            <p>We are excited to serve you</p>
+            <div class="header-buttons">
+                @Html.ActionLink("Register as Agent", "AgentCreate", "Agent")
+                @Html.ActionLink("Get Started", "Index", "Home")
+            </div>
+        </div>
+
+
+    </div>
+    </nav>
+
+    
+
+
