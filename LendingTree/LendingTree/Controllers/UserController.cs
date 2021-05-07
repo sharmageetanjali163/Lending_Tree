@@ -298,5 +298,41 @@ namespace LendingTree.Controllers
 
             return View(ob);
         }
+
+        public ActionResult ApplyLoan(Loan loan) {
+
+            if (ModelState.IsValid)
+            {
+                db.Loans.Add(loan);
+                var col1 = db.Loans.Where(w => w.PANNo.Equals(loan.PANNo));
+                foreach (var item in col1)
+                {
+                    item.Status = "0" ;
+                }
+
+
+                try
+                {
+                    db.SaveChanges();
+                    MessageBox.Show("Loan Request Submitted Successfully");
+                    return View(loan);
+                    //return RedirectToAction("UserHome", "Home");
+                }
+                catch (Exception e)
+                {
+                    ViewBag.Message = e.Message;
+                    return View("Error");
+                }
+            }
+            return View(loan);
+        }
+
+
+
+
+    
+
+
+
     }
 }

@@ -211,6 +211,7 @@
     <Content Include="Views\Agent\AgentLogin.cshtml" />
     <Content Include="Views\Agent\AgentAccount.cshtml" />
     <Content Include="Views\Start\Index.cshtml" />
+    <Content Include="Views\User\ApplyLoan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
