@@ -16,7 +16,7 @@ namespace LendingTree.Controllers
         private LendingContext db = new LendingContext();
 
         [HttpGet]
-        public ActionResult AdminLogin()
+        public ActionResult Login()
         {
 
             return View();
@@ -24,7 +24,7 @@ namespace LendingTree.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AdminLogin(Admin adminLogin, string returnUrl = "")
+        public ActionResult Login(Admin adminLogin, string returnUrl = "")
         {
             string message = "";
             ViewBag.Message = message;
@@ -70,14 +70,14 @@ namespace LendingTree.Controllers
         }
 
 
-        public ActionResult AdminIndex()
+        public ActionResult Index()
         {
             return View();
         }
 
         [Authorize]
         [HttpPost]
-        public ActionResult Logout()
+        public ActionResult Logut()
         {
             FormsAuthentication.SignOut();
 

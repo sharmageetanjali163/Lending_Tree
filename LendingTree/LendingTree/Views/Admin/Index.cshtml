@@ -1,0 +1,34 @@
+﻿@model LendingTree.Models.Admin
+
+@{ ViewBag.Title = "Index"; }
+
+<h2>AdminIndex</h2>
+
+<h1>Welcome @HttpContext.Current.User.Identity.Name</h1>
+
+<table class="form-group-sm">
+    <tr>
+        <td style="padding-right: 10px">@Html.ActionLink("Approve Cleaners", "Approve", "Admin")</td>
+    </tr>
+
+    <tr>
+        <td style="padding-right: 10px"> @Html.ActionLink("Help Requests", "TicketDisplay", "Admin")</td>
+    </tr>
+    <tr>
+        <td style="padding-right: 10px"> @Html.ActionLink("Service Allotment", "Filter", "Admin")</td>
+    </tr>
+    <tr>
+        <td style="padding-right: 10px"> @Html.ActionLink("View Feedback", "FeedbackDisplay", "Admin")</td>
+    </tr>
+    <tr>
+        <td style="padding-right: 10px"> @Html.ActionLink("Generate PDF", "GeneratePDF", "Admin")</td>
+    </tr>
+</table>
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "Admin", FormMethod.Post, new { id = "logoutform" }))
+    {
+<a href="javascript:document.getElementById('logoutform').submit()">Logout</a>}
+}
+

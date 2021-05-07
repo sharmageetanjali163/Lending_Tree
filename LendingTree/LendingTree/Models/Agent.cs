@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.WebPages.Html;
+using System.Web.Mvc;
 
 namespace LendingTree.Models
 {
@@ -48,12 +50,15 @@ namespace LendingTree.Models
 
         [Required]
         [Display(Name = "Department")]
-       // [Range(1, 5)]
+        [Range(1, 5)]
         public int DepartmentId { get; set; }
 
         [ForeignKey("DepartmentId")]
         public virtual Department Department { get; set; }
 
+        [NotMapped]
+        public IEnumerable<System.Web.Mvc.SelectListItem> DepartmentList { get; set; }
+        
         public ICollection<Loan> Loans { get; set; }
     }
 }
