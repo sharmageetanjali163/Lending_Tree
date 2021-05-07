@@ -130,13 +130,14 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AgentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StartController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105061548374_CreateInitialTables.cs" />
-    <Compile Include="Migrations\202105061548374_CreateInitialTables.Designer.cs">
-      <DependentUpon>202105061548374_CreateInitialTables.cs</DependentUpon>
+    <Compile Include="Migrations\202105061517569_abc.cs" />
+    <Compile Include="Migrations\202105061517569_abc.Designer.cs">
+      <DependentUpon>202105061517569_abc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -158,10 +159,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\lending1.jpg" />
+    <Content Include="Images\lending2.png" />
+    <Content Include="Images\loan.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -175,6 +180,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="video\startupvideo2.mp4" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -189,9 +195,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
-    <Content Include="Views\Agent\Create.cshtml" />
+    <Content Include="Views\Admin\AdminIndex.cshtml" />
+    <Content Include="Views\Admin\AdminLogin.cshtml" />
+    <Content Include="Views\Agent\AgentCreate.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
@@ -199,16 +205,12 @@
     <Content Include="Views\User\ForgotUserId.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\ResetPassword.cshtml" />
-    <Content Include="Views\User\Account.cshtml" />
+    <Content Include="Views\User\UserAccount.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
-    <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\Agent\Login.cshtml" />
-    <Content Include="Views\Agent\Admin.cshtml" />
-    <Content Include="Views\Agent\PhysicalVerification.cshtml" />
-    <Content Include="Views\Agent\ApprovalAgency.cshtml" />
-    <Content Include="Views\Agent\PickUp.cshtml" />
-    <Content Include="Views\Agent\LegalDept.cshtml" />
-    <Content Include="Views\Agent\Account.cshtml" />
+    <Content Include="Views\User\UserLogin.cshtml" />
+    <Content Include="Views\Agent\AgentLogin.cshtml" />
+    <Content Include="Views\Agent\AgentAccount.cshtml" />
+    <Content Include="Views\Start\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -227,8 +229,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105061548374_CreateInitialTables.resx">
-      <DependentUpon>202105061548374_CreateInitialTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105061517569_abc.resx">
+      <DependentUpon>202105061517569_abc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
